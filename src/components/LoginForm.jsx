@@ -6,8 +6,18 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [emailErrorMessage, setEmailErrorMessage] = useState("");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+  const handleErrorMessage = (message) => {
+    toast.error(
+      <div className="custom-toast">
+        <span className="toast-message">{message}</span>
+        <p onClick={() => toast.dismiss()}>X</p>
+      </div>,
+      {
+        position: "bottom-right",
+        closeButton: false,
+      }
+    );
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,28 +28,12 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) {
-      setEmailErrorMessage("Email is required.");
-      toast.error(
-        <div>
-          <span className="toast-message">{emailErrorMessage}</span>
-        </div>,
-        {
-          position: "bottom-right",
-        }
-      );
-      console.log("Email is required.");
+      const message = "Email is required!";
+      handleErrorMessage(message);
     }
     if (!password) {
-      setPasswordErrorMessage("Password is required.");
-      toast.error(
-        <div>
-          <span className="toast-message">{passwordErrorMessage}</span>
-        </div>,
-        {
-          position: "bottom-right",
-        }
-      );
-      console.log("Password is required.");
+      const message = "Password is required!";
+      handleErrorMessage(message);
     }
 
     setEmail("");

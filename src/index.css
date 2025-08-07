@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -6,11 +11,12 @@ body {
 }
 
 form {
-  width: 30%;
+  width: 40%;
   margin: 5rem auto;
-  padding: 20px;
+  padding: 20px 50px;
   border-radius: 5px;
   border: #666 1px solid;
+  box-shadow: 5px 5px 25px 2px #777;
 }
 form label {
   display: block;
@@ -19,11 +25,12 @@ form label {
 }
 form h1 {
   text-align: center;
+  padding: 15px 10px;
 }
 
 form input {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 0 10px 10px;
   margin-bottom: 13px;
   border: #888 solid 1px;
   border-radius: 4px;
@@ -33,7 +40,7 @@ form input:focus {
   outline-color: rgb(39, 130, 250);
 }
 
-form button {
+button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -44,6 +51,20 @@ form button {
   font-size: 18px;
   color: aliceblue;
   cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+button:hover {
+  transform: scale(0.99);
+  background-color: rgba(17, 112, 236, 0.6);
+}
+
+.custom-toast {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
 }
 
 .toast-message {
