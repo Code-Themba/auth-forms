@@ -6,7 +6,7 @@ body {
 }
 
 form {
-  width: 40%;
+  width: 30%;
   margin: 5rem auto;
   padding: 20px;
   border-radius: 5px;
@@ -33,7 +33,7 @@ form input:focus {
   outline-color: rgb(39, 130, 250);
 }
 
-button {
+form button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -44,4 +44,14 @@ button {
   font-size: 18px;
   color: aliceblue;
   cursor: pointer;
+}
+
+.toast-message {
+  margin-right: 12px;
+  width: 100%;
+}
+.user-icon,
+.door-icon {
+  margin-right: 8px;
+  margin-top: 2px;
 }

@@ -1,23 +1,25 @@
-import React from "react";
+import { useState } from "react";
 import { FaDoorOpen } from "react-icons/fa";
 
 const RegisterForm = () => {
+  const [username, setUsername] = useState("");
+
   return (
     <form>
       <h1>
-        <FaDoorOpen /> Register
+        <FaDoorOpen className="door-icon" /> Register
       </h1>
       <div className="form-group">
         <label htmlFor="username">Username</label>
-        <input type="text" id="username" />
+        <input type="text" name="username" id="username" />
       </div>
       <div className="form-group">
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" />
+        <input type="email" name="email" id="email" />
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" />
+        <input type="password" name="password" id="password" />
       </div>
       <button type="submit">Register</button>
     </form>
