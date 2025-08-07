@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaDoorOpen } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const RegisterForm = () => {
@@ -59,7 +60,7 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit} method="post">
       <h1>
-        <FaDoorOpen className="door-icon" /> Register
+        <FaDoorOpen className="door-icon" /> Sign Up
       </h1>
       <div className="form-group">
         <label htmlFor="username">Username</label>
@@ -102,6 +103,9 @@ const RegisterForm = () => {
         />
       </div>
       <button type="submit">Register</button>
+      <p>
+        Already have an account? <Link to="/login">Log in</Link>
+      </p>
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import { FaUser } from "react-icons/fa";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit}>
       <h1>
         <FaUser className="user-icon" />
-        Login Form
+        Sign in
       </h1>
       <div className="form-group">
         <label htmlFor="email">Email</label>
@@ -67,6 +68,9 @@ const LoginForm = () => {
         />
       </div>
       <button type="submit">Login</button>
+      <p>
+        Don't have an account? <Link to="/register">Sign Up</Link>
+      </p>
     </form>
   );
 };

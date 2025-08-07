@@ -40,6 +40,10 @@ form input:focus {
   outline-color: rgb(39, 130, 250);
 }
 
+form p {
+  padding: 10px 0;
+}
+
 button {
   width: 100%;
   padding: 10px;
@@ -71,8 +75,11 @@ button:hover {
   margin-right: 12px;
   width: 100%;
 }
-.user-icon,
-.door-icon {
+.user-icon {
   margin-right: 8px;
   margin-top: 2px;
+}
+
+.door-icon {
+  margin-top: 4px;
 }
