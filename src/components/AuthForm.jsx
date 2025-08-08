@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser, FaDoorOpen } from "react-icons/fa";
+import AltAuthButtons from "./AltAuthButtons";
 
-const emailRegex = !/\S+@\S+\.\S+/;
-
-const AuthForm = ({ mode = "login" }) => {
+const emailRegex = /\S+@\S+\.\S+/;
+const AuthForm = () => {
   const navigate = useNavigate();
+  const [mode, setMode] = useState("login");
 
   //Shared State
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -38,9 +38,6 @@ const AuthForm = ({ mode = "login" }) => {
   };
 
   const validForm = () => {
-    if (isRegistering && !formData.username.trim()) {
-      return "Username is required!";
-    }
     if (!formData.email.trim()) {
       return "Email is required!";
     }
@@ -59,7 +56,7 @@ const AuthForm = ({ mode = "login" }) => {
     return null;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const error = validForm();
     if (error) return handleErrorMessage(error);
@@ -77,6 +74,15 @@ const AuthForm = ({ mode = "login" }) => {
     }
   };
 
+  const switchMode = (newMode) => {
+    setMode(newMode);
+    setFormData({
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <h1>
@@ -88,18 +94,6 @@ const AuthForm = ({ mode = "login" }) => {
         {isRegistering ? "Sign Up" : "Sign In"}
       </h1>
 
-      {isRegistering && (
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            id="username"
-          />
-        </div>
-      )}
       <div className="form-group">
         <label htmlFor="email">Email</label>
         <input
@@ -133,14 +127,26 @@ const AuthForm = ({ mode = "login" }) => {
         </div>
       )}
       <button type="submit">{isRegistering ? "Register" : "Login"}</button>
+
+      <div className="auth-divider">
+        <span>OR</span>
+      </div>
+      {/* Alternative Login Buttons */}
+      <AltAuthButtons mode={mode} />
       <p>
         {isRegistering ? (
           <>
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account?{" "}
+            <li className="link-button" onClick={() => switchMode("login")}>
+              Login
+            </li>
           </>
         ) : (
           <>
-            Don't have an account? <Link to="/register">Register</Link>
+            Don't have an account?{" "}
+            <li className="link-button" onClick={() => switchMode("register")}>
+              Register
+            </li>
           </>
         )}
       </p>

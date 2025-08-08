@@ -62,16 +62,7 @@ const RegisterForm = () => {
       <h1>
         <FaDoorOpen className="door-icon" /> Sign Up
       </h1>
-      <div className="form-group">
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={handleChange}
-          name="username"
-          id="username"
-        />
-      </div>
+
       <div className="form-group">
         <label htmlFor="email">Email</label>
         <input
