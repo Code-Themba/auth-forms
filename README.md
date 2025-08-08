@@ -6,12 +6,11 @@ A lightweight React application providing login and registration forms with clie
 
 ## Features
 
-- Login form with email and password inputs
-- Registration form with username, email, password, and confirm password inputs
-- Client-side validation displaying error messages via toasts
-- Routing between `/login` and `/register` using React Router DOM
-- Toast notifications powered by React Toastify
-- Icons from React Icons (`FaUser`, `FaDoorOpen`)
+- Toggle between **login** and **register** states with separate validation logic.
+- Live-form validation with inline error messages.
+- Toast-based error notifications for a sleek UX on validation failures.
+- Social authentication buttons designed for future integration with OAuth providers.
+- Clean, responsive styling with intuitive UX (icons, hover effects, etc.).
 
 ---
 
@@ -78,21 +77,16 @@ npm run preview
 ## Folder Structure
 
 ```
-auth-forms/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── LoginForm.jsx
-│   │   └── RegisterForm.jsx
-│   ├── App.jsx
-│   ├── index.js
-│   └── styles/
-│       └── custom-toast.css
-├── .gitignore
-├── package.json
-├── vite.config.js
-└── README.md
+src/
+├── components/
+│   ├── AuthForm.jsx         # Main auth form (handles login/register toggle)
+│   ├── AltAuthButtons.jsx   # Social auth buttons (Google, Facebook)
+│   └── styles.css           # Styling for forms, buttons, toast UI, etc.
+├── App.jsx                  # Root component and routing setup
+├── index.jsx                # Application entry point
+README.md                    # This file
+package.json                 # Dependencies and scripts
+vite.config.js              # Vite configuration
 ```
 
 ---
